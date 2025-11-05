@@ -13,7 +13,7 @@ ___
 ```
     |                 | Monday | Wednesday | Friday |
     |-----------------|--------|-----------|--------|
-    | Driver          |        |           |        |
+    | Driver          |        |Aaron      |        |
     | Navigator       |        |           |        |
     | Quality Control |        |           |        |
 ```
@@ -26,7 +26,9 @@ ___
     what each one represents:
 
 ```
-    **Replace This Text With Your Response**
+    Game: The Game as a whole and how it runs
+    NPC: The algorithm controlling the NPC characters
+    Player: The player character
 ```
 
 2.b. Look more closely at the **t11_game.py** file. There are 8 lines; identify if they are 
@@ -35,14 +37,14 @@ ___
     c) method calls to another class
 
 ```
-    self.size = 800, 600                              # **Replace This Text With Your Response**
-    self.running = True                               # **Replace This Text With Your Response**
-    pygame.init()                                     # **Replace This Text With Your Response**
-    self.screen = pygame.display.set_mode(self.size)  # **Replace This Text With Your Response**
-    self.clock = pygame.time.Clock()                  # **Replace This Text With Your Response**
-    self.player = Player(self.size)                   # **Replace This Text With Your Response**
-    self.good_npc = NPC(self.size)                    # **Replace This Text With Your Response**
-    self.screen.fill('#9CBEBA')                       # **Replace This Text With Your Response**
+    self.size = 800, 600                              # instance parameters
+    self.running = True                               # instance parameters
+    pygame.init()                                     # method calls to another class
+    self.screen = pygame.display.set_mode(self.size)  # method calls to another class
+    self.clock = pygame.time.Clock()                  # method calls to another class
+    self.player = Player(self.size)                   # instance parameters
+    self.good_npc = NPC(self.size)                    # instance parameters
+    self.screen.fill('#9CBEBA')                       # instance parameters
 ```
 
 2.c. Parse through the `run()` method of t11_game.py. In particular, note how the game handles 
@@ -54,7 +56,11 @@ ___
 In your own words, describe how the four items above are accomplished in the Game class:
 
 ```
-    **Replace This Text With Your Response**
+    
+    a) Detects when the sprites collide and prints ending text
+    b) Player moves by key-press, NPC moves by prewritten code
+    c) After movement, pygame updates the display with the player and NPC in new location.
+    d) At the end of every loop of event checks and movement
 ```
 
 _Return to the Google Doc to continue the assignment._
@@ -67,7 +73,7 @@ _Return to the Google Doc to continue the assignment._
     How do you know?
 
 ```
-    **Replace This Text With Your Response**
+    pygame.sprite.Sprite
 ```
 
 3.b. Sprites need two attributes to function: A surface and a rectangle. The surface (implemented in a `Surface` 
@@ -77,27 +83,28 @@ _Return to the Google Doc to continue the assignment._
      and explain what each line does. 
 
 ```
-    **Replace This Text With Your Response**
+    Line 32 takes the image for Tuna.
+    Line 34 gets the rectangle from the image.
 ```
 
 3.c. The `Player` class has only one method so far. Parse that code and docstring, and describe what it does:
 
 ```
-    **Replace This Text With Your Response**
+    Detects when user presses the arrow keys, which signal a direction of movement
 ```
 
 3.d. Similarly, the `NPC` class in **t11_NPC.py** also inherits the `Sprite` class from **pygame**, 
      but it does a little more than our `Player` class. Compare the two classes, and identify/describe the differences:
 
 ```
-    **Replace This Text With Your Response**
+    NPC has premade randomized movement using code, while Player uses user input.
 ```
 
 3.e. Of particular interest is how we keep the `NPC` on the screen. Describe how we're using 
     the `self.rect` attribute in the `get_direction()` method to keep the `NPC` visible.  
 
 ```
-    **Replace This Text With Your Response**
+    It detects when the rectangle of the NPC is touching the border of the screen, then changes the direction it's moving to away from the border.
 ```
 
 _Return to the Google doc to continue the assignment._ 
