@@ -43,6 +43,7 @@ class Game:
 
         :return: None
         """
+        start_timer = pygame.time.get_ticks()
         while self.running:
             # Handle game ending first
             for event in pygame.event.get():
@@ -54,7 +55,7 @@ class Game:
                 # Prints the game ending text to the screen
                 font = pygame.font.SysFont("ComicSans", 36)
                 txt = font.render('You caught me!', True, "darkblue")
-                self.screen.blit(txt, (self.size[0]//2, self.size[1]-100))
+                self.screen.blit(txt, (self.size[0] // 2, self.size[1] - 100))
             elif pygame.sprite.spritecollide(self.tuna, [self.whiskers], False):
                 # Prints the game ending text to the screen
                 font = pygame.font.SysFont("ComicSans", 36)
@@ -71,6 +72,14 @@ class Game:
                 self.screen.blit(self.whiskers.surf, self.whiskers.rect)
             pygame.display.update()
             self.clock.tick(24)
+            check_timer = (pygame.time.get_ticks() - start_timer) / 1000
+
+            if check_timer > 5.0:
+                self.tuna.move_speed = self.tuna.move_speed * 1.20
+                self.tacocat.move_distance = self.tacocat.move_distance * 1.25
+                self.whiskers.move_distance = self.whiskers.move_distance * 1.25
+                start_timer = pygame.time.get_ticks()
+
 
         pygame.quit()
 

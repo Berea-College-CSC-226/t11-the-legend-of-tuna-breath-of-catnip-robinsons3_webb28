@@ -19,7 +19,6 @@ import pygame, random
 
 
 class NPC(pygame.sprite.Sprite):
-    move_distance = 10
     directions = ["north", "east", "south", "west"]
 
     def __init__(self, screen_size):
@@ -37,6 +36,7 @@ class NPC(pygame.sprite.Sprite):
         self.rect.move_ip(self.screen_size[0]//4, self.screen_size[1]//4)
         self.path = random.choice(self.directions)
         self.position = [0,0]
+        self.move_distance = 10
 
     def get_direction(self):
         """

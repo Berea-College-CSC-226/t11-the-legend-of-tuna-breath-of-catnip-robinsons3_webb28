@@ -14,7 +14,7 @@ ___
     |                 | Monday | Wednesday | Friday |
     |-----------------|--------|-----------|--------|
     | Driver          |        |Aaron      |        |
-    | Navigator       |        |           |        |
+    | Navigator       |        |Webb       |        |
     | Quality Control |        |           |        |
 ```
 
